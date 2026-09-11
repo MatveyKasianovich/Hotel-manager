@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changesets/001-create-hotel-table.yaml
+  - include:
+      file: db/changelog/changesets/002-create-amenity-table.yaml
+  - include:
+      file: db/changelog/changesets/003-create-hotel-amenity-table.yaml
