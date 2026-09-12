@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.Address;
 import com.example.demo.dto.ArrivalTime;
 import com.example.demo.dto.Contacts;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 
 public class HotelRequestDto {
@@ -16,10 +17,13 @@ public class HotelRequestDto {
     @NotBlank(message = "brand is required")
     public String brand;
 
+    @Valid
     private Address address;
 
+    @Valid
     private Contacts contacts;
 
+    @Valid
     private ArrivalTime arrivalTime;
 
     public HotelRequestDto(String name, String description, String brand, Address address, Contacts contacts, ArrivalTime arrivalTime) {
