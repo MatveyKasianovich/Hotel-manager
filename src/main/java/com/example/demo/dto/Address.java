@@ -1,10 +1,11 @@
 package com.example.demo.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class Address {
 
-    @NotBlank(message = "houseNumber is required")
+    @NotNull(message = "houseNumber is required")
     private Long houseNumber;
 
     @NotBlank(message = "street is required")

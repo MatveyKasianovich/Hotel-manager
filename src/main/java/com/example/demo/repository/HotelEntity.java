@@ -213,16 +213,6 @@ public class HotelEntity {
         this.amenities = amenities;
     }
 
-    public String addressToString() {
-        StringBuilder sb = new StringBuilder();
-        if (houseNumber != null) sb.append(houseNumber).append(" ");
-        if (street != null) sb.append(street);
-        if (city != null) sb.append(", ").append(city);
-        if (postCode != null) sb.append(", ").append(postCode);
-        if (country != null) sb.append(", ").append(country);
-        return sb.toString();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
