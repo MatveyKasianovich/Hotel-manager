@@ -38,6 +38,7 @@ public class HotelEntity {
 
     @Column(name = "phone")
     private String phone;
+
     private String email;
 
     @Column(name = "check_in")
