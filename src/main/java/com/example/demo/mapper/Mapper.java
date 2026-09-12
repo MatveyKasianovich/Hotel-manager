@@ -1,5 +1,6 @@
 package com.example.demo.mapper;
 
+import com.example.demo.controller.ExtendHotelResponseDto;
 import com.example.demo.controller.HotelRequestDto;
 import com.example.demo.controller.HotelResponseDto;
 import com.example.demo.dto.Address;
@@ -66,6 +67,25 @@ public class Mapper {
                         hotelEntity.getEmail()),
                 new ArrivalTime(hotelEntity.getCheckIn(),
                         hotelEntity.getCheckOut())
+        );
+    }
+
+    public final ExtendHotelResponseDto entityToExtendedResponseDto(HotelEntity hotelEntity) {
+        return new ExtendHotelResponseDto(
+                hotelEntity.getId(),
+                hotelEntity.getName(),
+                hotelEntity.getDescription(),
+                hotelEntity.getBrand(),
+                new Address(hotelEntity.getPostCode(),
+                        hotelEntity.getCountry(),
+                        hotelEntity.getCity(),
+                        hotelEntity.getStreet(),
+                        hotelEntity.getHouseNumber()),
+                new Contacts(hotelEntity.getPhone(),
+                        hotelEntity.getEmail()),
+                new ArrivalTime(hotelEntity.getCheckIn(),
+                        hotelEntity.getCheckOut()),
+                hotelEntity.getAmenities()
         );
     }
 }

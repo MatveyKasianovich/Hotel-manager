@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.LinkedHashSet;
@@ -17,6 +18,7 @@ public class AmenityEntity {
     @Column()
     private String name;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "amenities")
     private Set<HotelEntity> hotels = new LinkedHashSet<>();
 
