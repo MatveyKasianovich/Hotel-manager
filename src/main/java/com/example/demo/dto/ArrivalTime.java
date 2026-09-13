@@ -1,35 +1,37 @@
 package com.example.demo.dto;
 
-import jakarta.validation.constraints.Future;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotNull;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class ArrivalTime {
 
-    @Future(message = "check in should be in future")
-    private LocalDateTime checkIn;
+    @NotNull(message = "checkIn is required")
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime checkIn;
 
-    @Future(message = "check out should be in future")
-    private LocalDateTime checkOut;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime checkOut;
 
-    public ArrivalTime(LocalDateTime checkIn, LocalDateTime checkOut) {
+    public ArrivalTime(LocalTime checkIn, LocalTime checkOut) {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
     }
 
-    public LocalDateTime getCheckIn() {
+    public LocalTime getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(LocalDateTime checkIn) {
+    public void setCheckIn(LocalTime checkIn) {
         this.checkIn = checkIn;
     }
 
-    public LocalDateTime getCheckOut() {
+    public LocalTime getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(LocalDateTime checkOut) {
+    public void setCheckOut(LocalTime checkOut) {
         this.checkOut = checkOut;
     }
 }

@@ -45,7 +45,7 @@ databaseChangeLog:
                   type: VARCHAR(255)
               - column:
                   name: check_in
-                  type: TIMESTAMP
+                  type: TIME
               - column:
                   name: check_out
-                  type: TIMESTAMP
+                  type: TIME

@@ -20,7 +20,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -59,14 +59,14 @@ class HotelServiceTest {
                 "Hilton",
                 new Address("10115", "Germany", "Berlin", "Unter den Linden", 1L),
                 new Contacts("+49301234567", "info@grandplaza.com"),
-                new ArrivalTime(LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2))
+                new ArrivalTime(LocalTime.of(14, 0), LocalTime.of(12, 0))
         );
 
         entity = new HotelEntity(
                 1L, "Grand Plaza", "A hotel in the city center", "Hilton",
                 1L, "Unter den Linden", "Berlin", "Germany", "10115",
                 "+49301234567", "info@grandplaza.com",
-                LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2)
+                LocalTime.of(14, 0), LocalTime.of(12, 0)
         );
     }
 
@@ -93,8 +93,6 @@ class HotelServiceTest {
         verify(hotelRepository, times(1)).findById(99L);
     }
 
-
-
     @Test
     void addAmenityToHotel_whenHotelNotFound_throwsException() {
         when(hotelRepository.findById(5L)).thenReturn(Optional.empty());
@@ -119,7 +117,6 @@ class HotelServiceTest {
         assertThat(result.getAmenities()).contains(existing);
         verify(amenityRepository, never()).save(any());
     }
-
 
     @Test
     void histogram_withUnsupportedParam_throwsIllegalArgumentException() {

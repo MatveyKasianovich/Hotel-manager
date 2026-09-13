@@ -3,7 +3,7 @@ package com.example.demo.repository;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -42,10 +42,10 @@ public class HotelEntity {
     private String email;
 
     @Column(name = "check_in")
-    private LocalDateTime checkIn;
+    private LocalTime checkIn;
 
     @Column(name = "check_out")
-    private LocalDateTime checkOut;
+    private LocalTime checkOut;
 
     @ManyToMany(cascade = { CascadeType.PERSIST})
     @JoinTable(
@@ -58,7 +58,7 @@ public class HotelEntity {
     public HotelEntity() {
     }
 
-    public HotelEntity(Long id, String name, String description, String brand, Long houseNumber, String street, String city, String country, String postCode, String phone, String email, LocalDateTime checkIn, LocalDateTime checkOut, Set<AmenityEntity> amenities) {
+    public HotelEntity(Long id, String name, String description, String brand, Long houseNumber, String street, String city, String country, String postCode, String phone, String email, LocalTime checkIn, LocalTime checkOut, Set<AmenityEntity> amenities) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -75,7 +75,7 @@ public class HotelEntity {
         this.amenities = amenities;
     }
 
-    public HotelEntity(Long id, String name, String description, String brand, Long houseNumber, String street, String city, String country, String postCode, String phone, String email, LocalDateTime checkIn, LocalDateTime checkOut) {
+    public HotelEntity(Long id, String name, String description, String brand, Long houseNumber, String street, String city, String country, String postCode, String phone, String email, LocalTime checkIn, LocalTime checkOut) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -189,19 +189,19 @@ public class HotelEntity {
         this.email = email;
     }
 
-    public LocalDateTime getCheckIn() {
+    public LocalTime getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(LocalDateTime checkIn) {
+    public void setCheckIn(LocalTime checkIn) {
         this.checkIn = checkIn;
     }
 
-    public LocalDateTime getCheckOut() {
+    public LocalTime getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(LocalDateTime checkOut) {
+    public void setCheckOut(LocalTime checkOut) {
         this.checkOut = checkOut;
     }
 

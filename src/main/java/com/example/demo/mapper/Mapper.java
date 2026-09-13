@@ -6,9 +6,12 @@ import com.example.demo.controller.HotelResponseDto;
 import com.example.demo.dto.Address;
 import com.example.demo.dto.ArrivalTime;
 import com.example.demo.dto.Contacts;
+import com.example.demo.repository.AmenityEntity;
 import com.example.demo.repository.HotelEntity;
 import com.example.demo.service.Hotel;
 import org.springframework.stereotype.Component;
+
+import java.util.stream.Collectors;
 
 @Component
 public class Mapper {
@@ -85,7 +88,9 @@ public class Mapper {
                         hotelEntity.getEmail()),
                 new ArrivalTime(hotelEntity.getCheckIn(),
                         hotelEntity.getCheckOut()),
-                hotelEntity.getAmenities()
+                hotelEntity.getAmenities().stream()
+                        .map(AmenityEntity::getName)
+                        .collect(Collectors.toSet())
         );
     }
 }

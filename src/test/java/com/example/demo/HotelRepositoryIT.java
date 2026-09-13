@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
 
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,7 +38,7 @@ class HotelRepositoryIT {
                 null, "Grand Plaza", "City center hotel", "Hilton",
                 1L, "Unter den Linden", "Berlin", "Germany", "10115",
                 "+49301234567", "info@grandplaza.com",
-                LocalDateTime.now().plusDays(1), LocalDateTime.now().plusDays(2)
+                LocalTime.of(14, 0), LocalTime.of(12, 0)
         );
         berlinHotel.addAmenity(wifi);
 
@@ -46,7 +46,7 @@ class HotelRepositoryIT {
                 null, "Eiffel Suites", "Near the tower", "Marriott",
                 5L, "Avenue Anatole France", "Paris", "France", "75007",
                 "+33123456789", "contact@eiffelsuites.com",
-                LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(4)
+                LocalTime.of(15, 0), LocalTime.of(11, 0)
         );
         parisHotel.addAmenity(pool);
 
@@ -83,6 +83,7 @@ class HotelRepositoryIT {
                 .extracting(HotelEntity::getName)
                 .containsExactly("Grand Plaza");
     }
+
 
     @Test
     void searchByFilter_withNoMatches_returnsEmptyList() {

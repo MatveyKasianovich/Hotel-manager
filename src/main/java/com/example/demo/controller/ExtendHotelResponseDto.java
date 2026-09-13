@@ -3,10 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.Address;
 import com.example.demo.dto.ArrivalTime;
 import com.example.demo.dto.Contacts;
-import com.example.demo.repository.AmenityEntity;
-import jakarta.validation.constraints.NotBlank;
 
-import java.util.List;
 import java.util.Set;
 
 public class ExtendHotelResponseDto {
@@ -25,9 +22,9 @@ public class ExtendHotelResponseDto {
 
     private ArrivalTime arrivalTime;
 
-    private Set<AmenityEntity> amenities;
+    private Set<String> amenities;
 
-    public ExtendHotelResponseDto(Long id, String name, String description, String brand, Address address, Contacts contacts, ArrivalTime arrivalTime, Set<AmenityEntity> amenities) {
+    public ExtendHotelResponseDto(Long id, String name, String description, String brand, Address address, Contacts contacts, ArrivalTime arrivalTime, Set<String> amenities) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -98,11 +95,11 @@ public class ExtendHotelResponseDto {
         this.arrivalTime = arrivalTime;
     }
 
-    public Set<AmenityEntity> getAmenities() {
+    public Set<String> getAmenities() {
         return amenities;
     }
 
-    public void setAmenities(Set<AmenityEntity> amenities) {
+    public void setAmenities(Set<String> amenities) {
         this.amenities = amenities;
     }
 }

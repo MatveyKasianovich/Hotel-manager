@@ -18,7 +18,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.databind.ObjectMapper;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -56,8 +56,8 @@ class ControllerTests {
                 new Address("10115", "Germany", "Berlin", "Unter den Linden", 1L),
                 new Contacts("+49301234567", "info@grandplaza.com"),
                 new ArrivalTime(
-                        LocalDateTime.now().plusDays(1),
-                        LocalDateTime.now().plusDays(2)
+                        LocalTime.of(14, 0),
+                        LocalTime.of(12, 0)
                 )
         );
 
@@ -95,8 +95,8 @@ class ControllerTests {
                 new Address("10115", "Germany", "Berlin", "Unter den Linden", 1L),
                 new Contacts("+49301234567", "info@grandplaza.com"),
                 new ArrivalTime(
-                        LocalDateTime.now().minusDays(1),
-                        LocalDateTime.now().plusDays(2)
+                        null,
+                        LocalTime.of(12, 0)
                 )
         );
     }
@@ -142,8 +142,8 @@ class ControllerTests {
                 new Address(null, null, null, null, null),
                 new Contacts(null, "not-an-email"),
                 new ArrivalTime(
-                        LocalDateTime.now().plusDays(1),
-                        LocalDateTime.now().plusDays(2)
+                        LocalTime.of(14, 0),
+                        LocalTime.of(12, 0)
                 )
         );
 
